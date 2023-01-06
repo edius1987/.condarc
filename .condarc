@@ -1,0 +1,129 @@
+# refer https://docs.conda.io/projects/conda/en/latest/configuration.html
+
+# localizações de canais. Eles substituem os padrões do conda, ou seja, o conda irá
+# pesquisa *apenas* os canais listados aqui, na ordem dada. Use "padrão" para
+# inclui automaticamente todos os canais padrão. Canais não URL serão
+# interpretado como nomes de usuário binstar (isso pode ser alterado modificando o
+# chave channel_alias; Veja abaixo).
+
+allow_other_channels: true
+override_channels_enabled: true
+# definiu o URL do canal gratuito em default_channels, então defina restore_free_channel como false
+restore_free_channel: false
+
+ssl_verify: false
+safety_checks: disabled
+
+#remote_connect_timeout_secs: 10.0
+#remote_max_retries: 3
+#remote_read_timeout_secs: 60.0
+
+auto_update_conda: false
+#channel_priority: strict
+#channel_priority: disabled
+channel_priority: flexible
+notify_outdated_conda: true
+report_errors: false
+show_channel_urls: true
+# verbosity: 0 is warn. 1 is info. 2 is debug. 3 is trace.
+verbosity: 0
+
+#proxy_servers:
+#  http: socks5://127.0.0.1:1080
+#  https: socks5://127.0.0.1:1080
+
+
+channels:
+  - defaults
+  - binstar_username
+  - http://some.custom/channel
+  - http://repo.continuum.io/pkgs/free
+  - http://repo.continuum.io/pkgs/gpl
+  - http://repo.continuum.io/pkgs/pro
+  - http://conda.binstar.org/jni
+
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2
+
+
+custom_channels:
+  pkgs/main: https://mirrors.tuna.tsinghua.edu.cn/anaconda
+  pkgs/free: https://mirrors.tuna.tsinghua.edu.cn/anaconda
+  pkgs/r: https://mirrors.tuna.tsinghua.edu.cn/anaconda
+  pkgs/msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda
+  pkgs/pro: https://mirrors.tuna.tsinghua.edu.cn/anaconda
+  pkgs/mro: https://mirrors.tuna.tsinghua.edu.cn/anaconda
+  auto: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  caffe2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  fastai: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  fermi: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  intel: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  omnia: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  peterjc123: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  plotly: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  psi4: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  stackless: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  ursky: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+
+# Alias to use for non-url channels used with the -c flag. Default is https://conda.binstar.org/
+
+channel_alias: https://your.repo/
+
+# Proxy settings: http://[username]:[password]@[server]:[port]
+proxy_servers:
+    http: http://user:pass@corp.com:8080
+    https: https://user:pass@corp.com:8080
+
+# directory in which conda root is located (used by `conda init`)
+root_dir: ~/.local/conda_root
+
+# directories in which environments are located
+envs_dirs:
+  - ~/my-envs
+  - /opt/anaconda/envs
+
+# directories in which package cache can be present
+pkgs_dirs:
+  - ~/my-pkgs
+  - /opt/anaconda/pkgs
+
+# implies always using the --yes option whenever asked to proceed
+always_yes: True
+
+# disallow soft-linking (default is allow_softlinks: True,
+#                        i.e. soft-link when possible)
+allow_softlinks: False
+
+# always use soft-links instead of hard-links (default False)
+always_softlink: True
+
+# change ps1 when using activate (default True)
+changeps1: False
+
+# use pip when installing and listing packages (default True)
+use_pip: False
+
+# binstar.org upload (not defined here means ask)
+binstar_upload: True
+
+# when creating new environments add these packages by default
+create_default_packages:
+  - python
+  - pip
+
+# disallowed specification names
+disallow:
+  - anaconda
+
+# enable certain features to be tracked by default
+track_features:
+  - mkl
